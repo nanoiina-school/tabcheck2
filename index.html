@@ -86,7 +86,7 @@ let spinN=0;const spin=on=>{spinN=Math.max(0,spinN+(on?1:-1));$("#spin").style.d
 async function run(fn){spin(1);try{return await fn()}catch(e){Swal.fire({icon:"error",title:"เกิดข้อผิดพลาด",text:e.message||e.code||""})}finally{spin(0)}}
 const MENU=()=>[["sum","แดชบอร์ดและรายงาน","monitoring","#0288D1"],["check","ตรวจสอบอุปกรณ์","fact_check","#26A69A"],...(isAdmin()?[["users","ครู / ผู้ใช้งาน","badge","#F57B39"],["students","นักเรียน","school","#4A2C6D"],["settings","ตั้งค่าโรงเรียน","settings","#FBC02D"]]:[])];
 const sk=()=>`<div class="grid gap-4"><div class="sk h-16"></div><div class="grid grid-cols-2 lg:grid-cols-4 gap-4">${'<div class="sk h-24"></div>'.repeat(4)}</div><div class="sk h-64"></div></div>`;
-const foot=()=>`<footer class="py-5 flex justify-center items-center gap-2 flex-wrap text-sm mu"><span class="tag t-info">${ic("visibility")}<span id="vis">${S.visits}</span> ผู้เข้าชม</span><span>คลังสื่อการเรียนรู้ ${esc(S.school)}</span></footer>`;
+const foot=()=>`<footer class="py-5 flex justify-center items-center gap-2 flex-wrap text-sm mu"><span class="tag t-info">${ic("visibility")}<span id="vis">${S.visits}</span> ผู้เข้าชม</span><span>ระบบตรวจสอบ Tablet ${esc(S.school)} | พัฒนาโดย นางสาวอัจฉราพร  ขันธุแสง</span></footer>`;
 /* ---------- init ---------- */
 async function init(){
   $("#app").innerHTML=`<div class="p-6 max-w-xl mx-auto">${sk()}</div>`;
