@@ -43,7 +43,7 @@ table{border-collapse:collapse;width:100%}th{background:var(--sf);font-weight:60
 <div id="app"></div><div id="modal"></div><div id="spin"><div class="spn"></div></div>
 <script>
 /* ===== ตั้งค่า: ใส่ URL ของ Apps Script Web App (ลงท้ายด้วย /exec) ===== */
-const API_URL="https://script.google.com/macros/s/AKfycbz5spf4PoPyAm0Rq_bEkcsdWEdlT7-goqg_tp6x6rGD1OCtmpqI5EhoOOTTdqeklCr0/exec";
+const API_URL="https://script.google.com/macros/s/AKfycbyPeutUOOgwxL5wQGouiq9D6F-MExsnt7BGlnw6LXdMpvj5TPgha6frzrGxX4bKpfqR/exec";
 /* ===== ชั้นเชื่อมต่อกับ Google Sheet (Apps Script) ===== */
 const tk=()=>{try{return sessionStorage.getItem("tok")}catch(e){return null}};
 async function api(action,p={}){
@@ -89,7 +89,7 @@ let spinN=0;const spin=on=>{spinN=Math.max(0,spinN+(on?1:-1));$("#spin").style.d
 async function run(fn){spin(1);try{return await fn()}catch(e){Swal.fire({icon:"error",title:"เกิดข้อผิดพลาด",text:e.message||e.code||""})}finally{spin(0)}}
 const MENU=()=>[["sum","แดชบอร์ดและรายงาน","monitoring","#0288D1"],["check","ตรวจสอบอุปกรณ์","fact_check","#26A69A"],...(isAdmin()?[["users","ครู / ผู้ใช้งาน","badge","#F57B39"],["students","นักเรียน","school","#4A2C6D"],["settings","ตั้งค่าโรงเรียน","settings","#FBC02D"]]:[])];
 const sk=()=>`<div class="grid gap-4"><div class="sk h-16"></div><div class="grid grid-cols-2 lg:grid-cols-4 gap-4">${'<div class="sk h-24"></div>'.repeat(4)}</div><div class="sk h-64"></div></div>`;
-const foot=()=>`<footer class="py-5 flex justify-center items-center gap-2 flex-wrap text-sm mu"><span class="tag t-info">${ic("visibility")}<span id="vis">${S.visits}</span> ผู้เข้าชม</span><span>ระบบตรวจแท็บเลต ${esc(S.school)} | พัฒนาโดย ครูอัจฉราพร ขันธุแสง</span></footer>`;
+const foot=()=>`<footer class="py-5 flex justify-center items-center gap-2 flex-wrap text-sm mu"><span class="tag t-info">${ic("visibility")}<span id="vis">${S.visits}</span> ผู้เข้าชม</span><span>คลังสื่อการเรียนรู้ ${esc(S.school)}</span></footer>`;
 /* ---------- init ---------- */
 async function init(){
   $("#app").innerHTML=`<div class="p-6 max-w-xl mx-auto">${sk()}</div>`;
